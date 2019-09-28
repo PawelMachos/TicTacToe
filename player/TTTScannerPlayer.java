@@ -1,13 +1,14 @@
 package pl.com.sda.pawel.machos.programowanieII_Rafal.player;
 
 import pl.com.sda.pawel.machos.programowanieII_Rafal.TicTacToe;
+import pl.com.sda.pawel.machos.programowanieII_Rafal.model.BoardModel;
 import pl.com.sda.pawel.machos.programowanieII_Rafal.model.TTTPosition;
 
 import java.util.Scanner;
 
 public class TTTScannerPlayer implements TTTPlayer {
     @Override
-    public TTTPosition getMarkPosition() {
+    public TTTPosition getMarkPosition(BoardModel board) {
         Scanner sc = new Scanner(System.in);
         do {
             try {
@@ -24,12 +25,22 @@ public class TTTScannerPlayer implements TTTPlayer {
 
     }
 
-    private TTTPosition getPositionWithMagic(int position){
+    /**
+     *
+     * @param position
+     * @return
+     */
+    public TTTPosition getPositionWithMagic(int position){
         int x = (position -1) % TicTacToe.BOARD_SIZE;
         int y = (position -1) / TicTacToe.BOARD_SIZE;
         return new TTTPosition(x,y);
     }
 
+    /**
+     *
+     * @param position value from 1 to 9
+     * @return wanted position on board
+     */
     private TTTPosition getPositionWithSwitch(int position) {
         switch (position) {
             default:

@@ -24,5 +24,7 @@ public class ConsoleTTTView implements TicTacToeView{
             }
             if (i < BOARD_SIZE -1) { System.out.println("\n-+-+-"); }
         }
+        System.out.println();
+        System.out.println();
     }
 }

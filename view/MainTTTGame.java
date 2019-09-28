@@ -4,21 +4,22 @@ import pl.com.sda.pawel.machos.programowanieII_Rafal.player.TTTPlayer;
 import pl.com.sda.pawel.machos.programowanieII_Rafal.model.TTTPosition;
 import pl.com.sda.pawel.machos.programowanieII_Rafal.TicTacToe;
 import pl.com.sda.pawel.machos.programowanieII_Rafal.model.TTTResult;
+import pl.com.sda.pawel.machos.programowanieII_Rafal.player.TTTRandomPlayer;
 import pl.com.sda.pawel.machos.programowanieII_Rafal.player.TTTScannerPlayer;
 
 public class MainTTTGame {
 
     public static void main(String[] args) {
         TTTPlayer playerX = new TTTScannerPlayer(); //X
-        TTTPlayer playerO = new TTTScannerPlayer(); //O
+        TTTPlayer playerO = new TTTRandomPlayer(); //O
         TicTacToe game = new TicTacToe(new ConsoleTTTView());
 
         TTTPosition position;
         do {
             if(game.isPlayerXTurn()){
-                position = playerX.getMarkPosition();
+                position = playerX.getMarkPosition(game);
             } else {
-                position = playerO.getMarkPosition();
+                position = playerO.getMarkPosition(game);
             }
             game.putMark(position.getX(), position.getY());
             game.refreshView();

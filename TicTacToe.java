@@ -50,7 +50,6 @@ public class TicTacToe  implements BoardModel {
         catch (FieldTakenException ftke) {
             isPlayerXTurn = !isPlayerXTurn;
             System.err.println("Wybierz inne pole.");
-
         }
 
         if (isPlayerXTurn) {
